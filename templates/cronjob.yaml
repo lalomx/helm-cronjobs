@@ -71,6 +71,10 @@ spec:
           nodeSelector:
 {{ toYaml . | indent 12 }}
           {{- end }}
+          {{- with $job.imagePullSecrets }}
+          imagePullSecrets:
+{{ toYaml . | indent 12 }}
+          {{- end }}
           {{- with $job.affinity }}
           affinity:
 {{ toYaml . | indent 12 }}
